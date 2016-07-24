@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
   # Remember to create a migration!
+  has_many :drives
+  has_many :rides
 
   include BCrypt
 
