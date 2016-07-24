@@ -1,3 +1,7 @@
+get '/rides' do 
+	erb :"rides/index"
+end 
+
 get '/rides/new' do
 	erb :"/rides/new"
 end
