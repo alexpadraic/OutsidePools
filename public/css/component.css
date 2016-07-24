@@ -194,14 +194,14 @@ input:active::-ms-input-placeholder, input:focus::-ms-input-placeholder {
   margin-top: 0.4em;
 }
 .nl-form .nl-submit {
-  line-height: 3;
+  line-height: 6;
   text-transform: uppercase;
   cursor: pointer;
   position: relative;
   background: #76C3BD;
   color: #fff;
   padding: 0 1em 0 0;
-  font-size: 40%;
+  font-size: 80%;
   font-weight: bold;
   letter-spacing: 3px;
 }
