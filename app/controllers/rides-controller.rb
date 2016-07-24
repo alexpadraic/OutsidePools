@@ -25,3 +25,8 @@ end
 post '/rides/all' do
     erb :'rides/all'
 end
+
+get '/rides/:id' do
+    # route to delete a ride
+    redirect '/dashboard'
+end

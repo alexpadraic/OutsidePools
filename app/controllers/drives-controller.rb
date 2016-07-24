@@ -29,3 +29,8 @@ end
 post '/drives/all' do
     erb :'drives/all'
 end
+
+get '/drives/:id' do
+    # route to delete a drive
+    redirect '/dashboard'
+end
