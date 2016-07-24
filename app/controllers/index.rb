@@ -1,7 +1,7 @@
 get '/' do
-  redirect '/homepage'
+    erb :'homepage/index'
 end
 
-get '/homepage' do
-  erb :'homepage/index'
+get '/dashboard' do
+    erb :'/dashboard'
 end
