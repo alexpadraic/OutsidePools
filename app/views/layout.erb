@@ -43,16 +43,12 @@
       <% if session[:user_id] %>
 
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="/">Home</a></li>
+          <li><a href="/dashboard"><%=  "#{current_user.name}".capitalize%></a></li>
         </ul>
 
 
         <ul class="nav navbar-nav navbar-right">
           <li><a href="/sessions/delete">Logout</a></li>
-        </ul>
-
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="/users/<%= session[:user_id] %>"><%=  "#{current_user.name}".capitalize%></a></li>
         </ul>
       <% else %>
         <ul class="nav navbar-nav navbar-right">
