@@ -1,34 +1,39 @@
 <div class=col-md-12 style="align:center;">
       <div class="main clearfix">
-        <form id="nl-form" class="nl-form">
+        <form id="nl-form" class="nl-form" method="POST" action="/rides/new" autocomplete="off">
+          <input autocomplete="false" name="hidden" type="text" style="display:none;">
           I would like a ride from
-          <input style="height:100%;" id="autocomplete" placeholder="Folsom Street..." onFocus="geolocate()" name="location" type="text" class="form-control"></input>
+          <input style="height:100%;" id="autocomplete" placeholder="460 Bryant Street..." onFocus="geolocate()" name="location" type="text" class="form-control">
           on
-          <select>
-            <option value="1" selected>all days</option>
-            <option value="2">August 6</option>
-            <option value="3">August 7</option>
-            <option value="4">August 8</option>
+          <!-- <input type="text" name="date" list="date"> -->
+          <select name="date">
+            <option value="all" selected>all days</option>
+            <option value="6">August 6</option>
+            <option value="7">August 7</option>
+            <option value="8">August 8</option>
           </select>
           between
-          <select>
-            <option value="1" selected>6 p.m.</option>
-            <option value="2">7 p.m.</option>
-            <option value="3">8 p.m.</option>
-            <option value="4">9 p.m.</option>
+          <!-- <input type="text" name="time_start" list="time_start"> -->
+          <select name="time_start">
+            <option value="6" selected>6 p.m.</option>
+            <option value="7">7 p.m.</option>
+            <option value="8">8 p.m.</option>
+            <option value="9">9 p.m.</option>
           </select>
           and
-          <select>
-            <option value="1" selected>6 p.m.</option>
-            <option value="2">7 p.m.</option>
-            <option value="3">8 p.m.</option>
-            <option value="4">9 p.m.</option>
+          <!-- <input type="text" name="time_end" list="time_end"> -->
+          <select name="time_end">
+            <option value="6" selected>6 p.m.</option>
+            <option value="7">7 p.m.</option>
+            <option value="8">8 p.m.</option>
+            <option value="9">9 p.m.</option>
           </select>
           <br/>and need
-          <select>
-            <option value="1" selected>3 seats</option>
+          <!-- <input type="text" name="seats" list="seats"> -->
+          <select name="seats">
+            <option value="3" selected>3 seats</option>
             <option value="2">2 seats</option>
-            <option value="3">1 seat</option>
+            <option value="1">1 seat</option>
           </select>
           <br/>
           <div class="nl-submit-wrap">

@@ -6,7 +6,7 @@
                 <a href="#ride-requests">Ride Requests | <%=Ride.where(user_id:@user.id).count %></a>
             </li>
             <li>
-                <a href="#drive-offers">Drive Offers | <%=Drive.where(user_id:@user.id).count %></a>
+                <a href="#drive-offers">Pool Offers | <%=Drive.where(user_id:@user.id).count %></a>
             </li>
         </ul>
 
@@ -17,8 +17,8 @@
 
           <div class=col-md-12 style="align:center;">
             <div class=row>
+              <div class=col-md-12><a href="/rides/new" role="button">Request a Ride</a> | <a href="/rides/all" role="button">View all Ride Requests</a></div>
               <% Ride.where(user_id:@user.id).each do |q| %>
-              <div class=col-md-12><a href="/rides/new" role="button">Request another Ride</a> | <a href="/rides/all" role="button">View all Rides</a></div>
 
             <div class="jumbotron">
               <img src="op2.png" width= "60%"; height="">
@@ -51,8 +51,8 @@
 
           <div class=col-md-12 style="align:center;">
             <div class=row>
+              <div class=col-md-12><a href="/drives/new" role="button">Create a Pool</a> | <a href="/drives/all" role="button">View all Pools</a></div>
               <% Drive.where(user_id:@user.id).each do |q| %>
-              <div class=col-md-12><a href="/drives/new" role="button">Offer Another Drive</a> | <a href="/drives/all" role="button">View all Drives</a></div>
 
             <div class="jumbotron">
               <img src="op2.png" width= "60%"; height="">
@@ -60,7 +60,7 @@
             <p>Pickup Location of Rider</p>
             August 8 | 2pm - 4pm
             <br>
-            <p id="contact-driver-button"><a class="btn btn-lg btn-warning" href="/drives/:id" role="button">Delete Drive Offer</a></p>
+            <p id="contact-driver-button"><a class="btn btn-lg btn-warning" href="/drives/:id" role="button">Delete Pool</a></p>
             </div>
           <div class="jumbotron">
             <img src="op2.png" width= "60%"; height="">
@@ -68,7 +68,7 @@
           <p>Pickup Location of Rider</p>
           August 8 | 2pm - 4pm
           <br>
-          <p id="contact-driver-button"><a class="btn btn-lg btn-warning" href="/drives/:id" role="button">Delete Drive Offer</a></p>
+          <p id="contact-driver-button"><a class="btn btn-lg btn-warning" href="/drives/:id" role="button">Delete Pool</a></p>
           </div>
         <% end %>
         </div>

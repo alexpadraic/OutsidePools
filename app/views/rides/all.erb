@@ -1,15 +1,6 @@
-<nav class="navbar navbar-default">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <a class="navbar-brand" href="#">
-              <img alt="Brand" src="op.png" width="70px;">
-            </a>
-          </div>
-        </div>
-      </nav>
-      <div class=col-md-12 style="align:center;">
+<div class=col-md-12 style="align:center;">
         <div class="main clearfix">
-          <form id="nl-form" class="nl-form">
+          <form id="nl-form" class="nl-form" action="/rides/new">
             I would like a ride from
             <input style="height:100%;" id="autocomplete" placeholder="Folsom Street..." onFocus="geolocate()" name="location" type="text" class="form-control"></input>
             on
@@ -41,6 +32,7 @@
             </select>
             <br/>
             <div class="nl-submit-wrap">
+
               <button class="nl-submit" type="submit">Request a Ride</button>
             </div>
             <div class="nl-overlay"></div>
