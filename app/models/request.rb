@@ -1,7 +1,5 @@
 class Request < ActiveRecord::Base
   # Remember to create a migration!
-  belongs_to :drives
-  belongs_to :rides
-  belongs_to :users, through: :rides
-  belongs_to :users, through: :drives
+  belongs_to :drive
+  belongs_to :ride
 end
