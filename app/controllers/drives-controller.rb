@@ -35,3 +35,8 @@ get '/drives/:id' do
     # route to delete a drive
     redirect '/dashboard'
 end
+
+post '/drives/:id/delete' do
+    Drive.find(params[:id]).destroy
+    redirect '/dashboard'
+end

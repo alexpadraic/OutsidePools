@@ -5797,6 +5797,10 @@ button.close {
 
 /* style.css */
 * {
-    font-size: 22px;
+<<<<<<< HEAD
+    font-size: 16px;
+=======
+    font-size: 18px;
+>>>>>>> 896c60eb8bfcfd58882ba9aafb035cbff02cd0a9
     line-height: 2;
 }

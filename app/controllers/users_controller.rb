@@ -3,7 +3,7 @@ get '/users/new' do
 end
 
 post '/users/new' do
-    @user = User.create(name: params[:name], email: params[:email], password: params[:password])
+    @user = User.new(params[:user])
     if @user.save
         login(@user)
 
