@@ -6,6 +6,10 @@ get 'drives/new' do
     erb :"drives/new"
 end
 
+post 'drives/new' do
+    redirect 'drives/new'
+end
+
 get '/drives/:id' do
     erb :"drives/show"
 end
