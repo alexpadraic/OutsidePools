@@ -1,0 +1,29 @@
+<h1> Dashboard </h1>
+
+<button name="offer">Offer a ride </button>
+
+<button name="request">Request a ride </button>
+
+<% if false %>
+<ul>
+<% @user.drives.each do |drive| %>
+  <li><%= drive.title %></li>
+<% end %>
+<% @user.rides.each do |ride| %>
+  <li><%= drive.title %></li>
+  <% end %>
+</ul>
+<% end %>
+<br><br>
+
+  <h2><%= @user.name %>'s Pools</h2>
+<ul>
+  <li> @user.rides.each <button name="request_matches">See Matches </button> <button name="delete">Delete </button>
+  <li> @user.drives.each <button name="offer_matches">See Matches </button> <button name="delete">Delete </button>
+
+</ul>
+
+<br><br>
+<button name="all_drives">All Driver Offers </button>
+
+<button name="all_rides">All Ride Requests </button>

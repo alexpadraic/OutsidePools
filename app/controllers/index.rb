@@ -1,7 +1,8 @@
 get '/' do
-  redirect '/homepage'
+    erb :'homepage/index'
 end
 
-get '/homepage' do
-  erb :'homepage/index'
+get '/dashboard' do
+    @user = User.find(session[:user_id])
+    erb :'/dashboard'
 end
