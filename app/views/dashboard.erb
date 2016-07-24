@@ -18,8 +18,7 @@
           <div class=col-md-12 style="align:center;">
             <div class=row>
               <div class=col-md-12><a href="/rides/new" role="button">Request a Ride</a> | <a href="/rides/all" role="button">View all Ride Requests</a></div>
-              <% Ride.where(user_id:@user.id).each do |q| %>
-
+              <% Ride.where(user_id:@user.id).each do |ride| %>
             <div class="jumbotron">
               <img src="op2.png" width= "60%"; height="">
             <h3>Name of Rider</h3>
