@@ -1,15 +1,15 @@
 
     <div class=col-md-12 style="align:center;">
       <div class="main clearfix">
-        <form id="nl-form" class="nl-form">
+        <form id="nl-form" class="nl-form" method="POST" action="/drives/new">
           I will be leaving from
           <input style="height:100%;" id="autocomplete" placeholder="460 Bryant Street..." onFocus="geolocate()" name="location" type="text" class="form-control"></input>
           on
           <select name="date">
             <option value="1" selected>all days</option>
-            <option value="2">August 6</option>
-            <option value="3">August 7</option>
-            <option value="4">August 8</option>
+            <option value="6">August 6</option>
+            <option value="7">August 7</option>
+            <option value="8">August 8</option>
           </select>
           between
           <select name="time_start">
@@ -26,7 +26,7 @@
             <option value="9">9 p.m.</option>
           </select>
           <br/>and have
-          <select name="time_end">
+          <select name="seats">
             <option value="3" selected>3 seats</option>
             <option value="2">2 seats</option>
             <option value="1">1 seat</option>
