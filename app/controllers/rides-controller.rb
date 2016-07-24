@@ -7,9 +7,8 @@ get '/rides/new' do
 end
 
 post '/rides/new' do
-    p params
-    p '4' * 20
-    redirect '/rides/new'
+    @ride = Ride.create(user_id: session[:user_id], start_address: 4.0, end_address: 2.0, departure_min: params[:time_start], departure_max: params[:time_end], passengers: params[:passengers])
+    redirect "/rides/#{@ride.id}/matches"
 end
 
 get '/rides/:id/matches' do
