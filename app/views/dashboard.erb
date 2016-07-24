@@ -1,29 +1,107 @@
-<h1> Dashboard </h1>
+<h1 class="page-header" > Hello, <%= @user.name.capitalize %>!</h1><br> <br>
 
-<button name="offer">Offer a ride </button>
 
-<button name="request">Request a ride </button>
+        <ul id="tabs" class="nav nav-tabs">
+            <li class="active">
+                <a href="#ride-requests">Ride Requests | <%=Rides.where(user_id:@user.id).count %></a>
+            </li>
+            <li>
+                <a href="#drive-offers">Drive Offers | <%=Answer.where(user_id:@user.id).count %></a>
+            </li>
+        </ul>
 
-<% if false %>
-<ul>
-<% @user.drives.each do |drive| %>
-  <li><%= drive.title %></li>
-<% end %>
-<% @user.rides.each do |ride| %>
-  <li><%= drive.title %></li>
-  <% end %>
-</ul>
-<% end %>
-<br><br>
 
-  <h2><%= @user.name %>'s Pools</h2>
-<ul>
-  <li> @user.rides.each <button name="request_matches">See Matches </button> <button name="delete">Delete </button>
-  <li> @user.drives.each <button name="offer_matches">See Matches </button> <button name="delete">Delete </button>
+    <div class="tab-content" >
 
-</ul>
+        <div id="ride-requests" class="tab-pane active">
 
-<br><br>
-<button name="all_drives">All Driver Offers </button>
+          <div class=col-md-12 style="align:center;">
+            <div class=row>
+              <% Question.where(user_id:@user.id).each do |q| %>
+              <div class=col-md-12><a href="/question/new" role="button">Request another Ride</a> | <a href="/question/new" role="button">View all Rides</a></div>
 
-<button name="all_rides">All Ride Requests </button>
+            <div class="jumbotron">
+              <img src="op2.png" width= "60%"; height="">
+            <h3>Name of Rider</h3>
+            <p>Pickup Location of Rider</p>
+            August 8 | 2pm - 4pm
+            <br>
+            <p id="contact-driver-button"><a class="btn btn-lg btn-warning" href="#" role="button">Delete Ride Request</a></p>
+
+          </div>
+          <div class="jumbotron">
+            <img src="op2.png" width= "60%"; height="">
+          <h3>Name of Rider</h3>
+          <p>Pickup Location of Rider</p>
+          August 8 | 2pm - 4pm
+          <br>
+          <p id="contact-driver-button"><a class="btn btn-lg btn-warning" href="#" role="button">Delete Ride Request</a></p>
+
+        </div>
+        <% end %>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+    <div class="tab-content" >
+
+        <div id="drive-offers" class="tab-pane">
+
+          <div class=col-md-12 style="align:center;">
+            <div class=row>
+              <% Question.where(user_id:@user.id).each do |q| %>
+              <div class=col-md-12><a href="/question/new" role="button">Offer Another Drive</a> | <a href="/question/new" role="button">View all Drives</a></div>
+
+            <div class="jumbotron">
+              <img src="op2.png" width= "60%"; height="">
+            <h3>Name of Rider</h3>
+            <p>Pickup Location of Rider</p>
+            August 8 | 2pm - 4pm
+            <br>
+            <p id="contact-driver-button"><a class="btn btn-lg btn-warning" href="#" role="button">Delete Drive Offer</a></p>
+            </div>
+          <div class="jumbotron">
+            <img src="op2.png" width= "60%"; height="">
+          <h3>Name of Rider</h3>
+          <p>Pickup Location of Rider</p>
+          August 8 | 2pm - 4pm
+          <br>
+          <p id="contact-driver-button"><a class="btn btn-lg btn-warning" href="#" role="button">Delete Drive Offer</a></p>
+          </div>
+        <% end %>
+        </div>
+    </div>
+  </div>
+</div>
+
+    </div>
+
+    <script> $(document).ready(function() {
+	// This is called after the document has loaded in its entirety
+	// This guarantees that any elements we bind to will exist on the page
+	// when we try to bind to them
+
+	// See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+	$('ul.nav-tabs li').on('click', function(event) {
+
+		var ul = $('ul#tabs li');
+		var tp = $('.tab-content div.tab-pane');
+		var tab = $(event.target).attr("href");
+
+		ul.each(function(li) {
+			$("li").removeClass("active");
+
+		});
+
+		tp.each(function(div) {
+			// debugger;
+			$("div").removeClass("active");
+		});
+		$(tab).addClass("active");
+		$(this).addClass("active");
+	});
+
+});
+</script>
