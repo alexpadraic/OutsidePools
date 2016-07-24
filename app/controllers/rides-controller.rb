@@ -21,3 +21,11 @@ end
 post '/rides/:id/matches' do
     redirect '/rides/:id/matches'
 end
+
+get '/rides/all' do
+    erb :'rides/all'
+end
+
+post '/rides/all' do
+    erb :'rides/all'
+end

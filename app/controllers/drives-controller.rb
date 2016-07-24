@@ -25,3 +25,11 @@ end
 post '/drives/:id/matches' do
     redirect '/drives/:id/matches'
 end
+
+get '/drives/all' do
+    erb :'drives/all'
+end
+
+post '/drives/all' do
+    erb :'drives/all'
+end

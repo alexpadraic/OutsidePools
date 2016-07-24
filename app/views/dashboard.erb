@@ -14,3 +14,16 @@
   <% end %>
 </ul>
 <% end %>
+<br><br>
+
+  <h2><%= @user.name %>'s Pools</h2>
+<ul>
+  <li> @user.rides.each <button name="request_matches">See Matches </button> <button name="delete">Delete </button>
+  <li> @user.drives.each <button name="offer_matches">See Matches </button> <button name="delete">Delete </button>
+
+</ul>
+
+<br><br>
+<button name="all_drives">All Driver Offers </button>
+
+<button name="all_rides">All Ride Requests </button>
