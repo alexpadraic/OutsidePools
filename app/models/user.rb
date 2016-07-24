@@ -2,19 +2,19 @@
 class PasswordValidator < ActiveModel::EachValidator
   def validate_each(record, attribute, value)
     unless /\A(?=[^a-z]*[a-z])(?=(?:[^A-Z]*[A-Z]){1})(?=\D*\d)(.*\w)/.match(value)
-      record.errors[:password] << 'Password must include 
+      record.errors[:password] << 'Password must include
         an upper-case letter, a non-word character, and a digit'
-    end 
-  end 
-end 
+    end
+  end
+end
 
 class User < ActiveRecord::Base
   # Remember to create a migration!
   has_many :drives
   has_many :rides
-  validates :email, uniqueness: true, on: :create 
-  validates :first_name, :last_name, :password, :email, presence: true 
-  validates :password, presence: true, password: true 
+  validates :email, uniqueness: true, on: :create
+  validates :name, :password, :email, presence: true
+  validates :password, presence: true, password: true
 
 
   include BCrypt
