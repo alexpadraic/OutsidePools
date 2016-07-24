@@ -1,1 +1,16 @@
 <h1> Dashboard </h1>
+
+<button name="offer">Offer a ride </button>
+
+<button name="request">Request a ride </button>
+
+<% if false %>
+<ul>
+<% @user.drives.each do |drive| %>
+  <li><%= drive.title %></li>
+<% end %>
+<% @user.rides.each do |ride| %>
+  <li><%= drive.title %></li>
+  <% end %>
+</ul>
+<% end %>
