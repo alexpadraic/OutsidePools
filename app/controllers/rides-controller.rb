@@ -6,8 +6,10 @@ get '/rides/new' do
     erb :"/rides/new"
 end
 
-post '/rides' do
-    redirect '/rides'
+post '/rides/new' do
+    p params
+    p '4' * 20
+    redirect '/rides/new'
 end
 
 get '/rides/:id/matches' do
