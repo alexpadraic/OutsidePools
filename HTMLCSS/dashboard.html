@@ -1,0 +1,137 @@
+!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--
+    normalize.css removes cross-browser differences in defaults, e.g.,
+    differences in how form elements appear between Firefox and IE
+    See: http://necolas.github.com/normalize.css/
+  -->
+    <!-- <link rel="stylesheet" href="/css/normalize.css"> -->
+    <!--
+    application.css is where you put your styles
+  -->
+    <!-- <link rel="stylesheet" href="/css/application.css"> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="js/application.js"></script>
+
+    <title>OutsidePools</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/default.css"/>
+    <link rel="stylesheet" type="text/css" href="css/component.css"/>
+    <script src="js/modernizr.custom.js"></script>
+
+  </head>
+  <body>
+    <container>
+        <h1 class="page-header" > Hello, <%= @user.name.capitalize %>!</h1><br> <br>
+
+
+        <ul id="tabs" class="nav nav-tabs">
+            <li class="active">
+                <a href="#ride-requests">Ride Requests | <%=Rides.where(user_id:@user.id).count %></a>
+            </li>
+            <li>
+                <a href="#drive-offers">Drive Offers | <%=Answer.where(user_id:@user.id).count %></a>
+            </li>
+        </ul>
+
+
+    <div class="tab-content" >
+
+        <div id="ride-requests" class="tab-pane active">
+
+          <div class=col-md-12 style="align:center;">
+            <div class=row>
+              <% Question.where(user_id:@user.id).each do |q| %>
+              <div class=col-md-12><a href="/question/new" role="button">Request another Ride</a> | <a href="/question/new" role="button">View all Rides</a></div>
+
+            <div class="jumbotron">
+              <img src="op2.png" width= "60%"; height="">
+            <h3>Name of Rider</h3>
+            <p>Pickup Location of Rider</p>
+            August 8 | 2pm - 4pm
+            <br>
+            <p id="contact-driver-button"><a class="btn btn-lg btn-warning" href="#" role="button">Delete Ride Request</a></p>
+
+          </div>
+          <div class="jumbotron">
+            <img src="op2.png" width= "60%"; height="">
+          <h3>Name of Rider</h3>
+          <p>Pickup Location of Rider</p>
+          August 8 | 2pm - 4pm
+          <br>
+          <p id="contact-driver-button"><a class="btn btn-lg btn-warning" href="#" role="button">Delete Ride Request</a></p>
+
+        </div>
+        <% end %>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+    <div class="tab-content" >
+
+        <div id="drive-offers" class="tab-pane">
+
+          <div class=col-md-12 style="align:center;">
+            <div class=row>
+              <% Question.where(user_id:@user.id).each do |q| %>
+              <div class=col-md-12><a href="/question/new" role="button">Offer Another Drive</a> | <a href="/question/new" role="button">View all Drives</a></div>
+
+            <div class="jumbotron">
+              <img src="op2.png" width= "60%"; height="">
+            <h3>Name of Rider</h3>
+            <p>Pickup Location of Rider</p>
+            August 8 | 2pm - 4pm
+            <br>
+            <p id="contact-driver-button"><a class="btn btn-lg btn-warning" href="#" role="button">Delete Drive Offer</a></p>
+            </div>
+          <div class="jumbotron">
+            <img src="op2.png" width= "60%"; height="">
+          <h3>Name of Rider</h3>
+          <p>Pickup Location of Rider</p>
+          August 8 | 2pm - 4pm
+          <br>
+          <p id="contact-driver-button"><a class="btn btn-lg btn-warning" href="#" role="button">Delete Drive Offer</a></p>
+          </div>
+        <% end %>
+        </div>
+    </div>
+  </div>
+</div>
+
+    </container>
+
+    <script> $(document).ready(function() {
+	// This is called after the document has loaded in its entirety
+	// This guarantees that any elements we bind to will exist on the page
+	// when we try to bind to them
+
+	// See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+	$('ul.nav-tabs li').on('click', function(event) {
+
+		var ul = $('ul#tabs li');
+		var tp = $('.tab-content div.tab-pane');
+		var tab = $(event.target).attr("href");
+
+		ul.each(function(li) {
+			$("li").removeClass("active");
+
+		});
+
+		tp.each(function(div) {
+			// debugger;
+			$("div").removeClass("active");
+		});
+		$(tab).addClass("active");
+		$(this).addClass("active");
+	});
+
+});
+</script>
+  </body>
+  </html>
