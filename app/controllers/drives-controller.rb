@@ -10,10 +10,6 @@ post 'drives/new' do
     redirect 'drives/new'
 end
 
-get '/drives/:id' do
-    erb :"drives/show"
-end
-
 post '/drives' do
     redirect 'drives/index'
 end
