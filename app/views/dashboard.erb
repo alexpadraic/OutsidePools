@@ -1,84 +1,76 @@
 <h1 class="page-header" > Hello, <%= @user.name %>!</h1><br> <br>
 
 
-        <ul id="tabs" class="nav nav-tabs">
-            <li class="active">
-                <a href="#ride-requests">Ride Requests | <%=Ride.where(user_id:@user.id).count %></a>
-            </li>
-            <li>
-                <a href="#drive-offers">Pool Offers | <%=Drive.where(user_id:@user.id).count %></a>
-            </li>
-        </ul>
+<ul id="tabs" class="nav nav-tabs">
+  <li class="active">
+    <a href="#ride-requests">Ride Requests | <%=Ride.where(user_id:@user.id).count %></a>
+  </li>
+  <li>
+    <a href="#drive-offers">Pool Offers | <%=Drive.where(user_id:@user.id).count %></a>
+  </li>
+</ul>
 
 
-    <div class="tab-content" >
+<div class="tab-content" >
 
-        <div id="ride-requests" class="tab-pane active">
+  <div id="ride-requests" class="tab-pane active">
 
-          <div class=col-md-12 style="align:center;">
-            <div class=row>
-              <div class=col-md-12><a href="/rides/new" role="button">Request a Ride</a> | <a href="/rides/all" role="button">View all Ride Requests</a></div>
-              <% Ride.where(user_id:@user.id).each do |q| %>
+    <div class=col-md-12 style="align:center;">
+      <div class=row>
+        <div class=col-md-12><a href="/rides/new" role="button">Request a Ride</a> | <a href="/rides/all" role="button">View all Ride Requests</a></div>
+        <% Ride.where(user_id:@user.id).each do |q| %>
 
-            <div class="jumbotron">
-              <img src="op2.png" width= "60%"; height="">
-            <h3>Name of Rider</h3>
-            <p>Pickup Location of Rider</p>
-            August 8 | 2pm - 4pm
-            <br>
-            <p id="contact-driver-button"><a class="btn btn-lg btn-warning" href="/rides/:id" role="button">Delete Ride Request</a></p>
-
-          </div>
-          <div class="jumbotron">
-            <img src="op2.png" width= "60%"; height="">
-          <h3>Name of Rider</h3>
-          <p>Pickup Location of Rider</p>
-          August 8 | 2pm - 4pm
+        <div class="jumbotron">
+          <img src="MAP GOES HERE" width= "60%"; height="">
+          <h3><%= User.find(q.user_id).name %></h3>
+          <p><%=q.start_address%></p>
+          <%= q.departure_min.month%> - <%=q.departure_min.day %> | <%= q.departure_min.hour%> - <%=q.departure_max.hour%>
           <br>
-          <p id="contact-driver-button"><a class="btn btn-lg btn-warning" href="/rides/:id" role="button">Delete Ride Request</a></p>
+          <p id="contact-driver-button">
+            <form action="/rides/<%=q.id%>/delete" method="post" target="myFrame" id="myForm">
+            
+          <p id="contact-driver-button"><button id = "newThread" class="btn btn-warning" type="submit">Delete Ride </buttonRequest</a></p>
+          </form>
+          </p>
 
         </div>
         <% end %>
-        </div>
+      </div>
     </div>
   </div>
 </div>
 
 
-    <div class="tab-content" >
+<div class="tab-content" >
 
-        <div id="drive-offers" class="tab-pane">
+  <div id="drive-offers" class="tab-pane">
 
-          <div class=col-md-12 style="align:center;">
-            <div class=row>
-              <div class=col-md-12><a href="/drives/new" role="button">Create a Pool</a> | <a href="/drives/all" role="button">View all Pools</a></div>
-              <% Drive.where(user_id:@user.id).each do |q| %>
+    <div class=col-md-12 style="align:center;">
+      <div class=row>
+        <div class=col-md-12><a href="/drives/new" role="button">Create a Pool</a> | <a href="/drives/all" role="button">View all Pools</a></div>
+        <% Drive.where(user_id:@user.id).each do |q| %>
 
-            <div class="jumbotron">
-              <img src="op2.png" width= "60%"; height="">
-            <h3>Name of Rider</h3>
-            <p>Pickup Location of Rider</p>
-            August 8 | 2pm - 4pm
-            <br>
-            <p id="contact-driver-button"><a class="btn btn-lg btn-warning" href="/drives/:id" role="button">Delete Pool</a></p>
-            </div>
-          <div class="jumbotron">
-            <img src="op2.png" width= "60%"; height="">
-          <h3>Name of Rider</h3>
-          <p>Pickup Location of Rider</p>
-          August 8 | 2pm - 4pm
+        <div class="jumbotron">
+          <img src="MAP GOES HERE" width= "60%"; height="">
+          <h3><%= User.find(q.user_id).name %></h3>
+          <p><%=q.start_address%></p>
+          <%= q.departure_min.month%> - <%=q.departure_min.day %> | <%= q.departure_min.hour%> - <%=q.departure_max.hour%>
           <br>
-          <p id="contact-driver-button"><a class="btn btn-lg btn-warning" href="/drives/:id" role="button">Delete Pool</a></p>
-          </div>
-        <% end %>
+          <form action="/drives/<%=q.id%>/delete" method="post" target="myFrame" id="myForm">
+            
+          <p id="contact-driver-button"><button id = "newThread" class="btn btn-warning" type="submit">Delete Drive </button></a></p>
+          </form>
+
         </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
 
-    </div>
+</div>
 
-    <script> $(document).ready(function() {
+<script> $(document).ready(function() {
 	// This is called after the document has loaded in its entirety
 	// This guarantees that any elements we bind to will exist on the page
 	// when we try to bind to them

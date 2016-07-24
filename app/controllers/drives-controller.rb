@@ -2,11 +2,11 @@ get '/drives' do
     erb :"drives/index"
 end
 
-get 'drives/new' do
-    erb :"drives/new"
+get '/drives/new' do
+    erb :'drives/new'
 end
 
-post 'drives/new' do
+post '/drives/new' do
     redirect 'drives/new'
 end
 
@@ -34,3 +34,9 @@ get '/drives/:id' do
     # route to delete a drive
     redirect '/dashboard'
 end
+
+post '/drives/:id/delete' do 
+Drive.find(params[:id]).destroy
+redirect '/dashboard'
+end
+
