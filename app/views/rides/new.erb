@@ -1,6 +1,7 @@
 <div class=col-md-12 style="align:center;">
       <div class="main clearfix">
-        <form id="nl-form" class="nl-form">
+        <form id="nl-form" class="nl-form" autocomplete="">
+          <input  name="hidden" type="text" style="display:none;">
           I would like a ride from
           <input style="height:100%;" id="autocomplete" placeholder="Folsom Street..." onFocus="geolocate()" name="location" type="text" class="form-control"></input>
           on
@@ -43,7 +44,6 @@
 <script>
   // This example displays an address form, using the autocomplete feature of the Google Places API to help users fill in the information. This example requires the Places library. Include the libraries=places parameter when you first load the API. For
   // example: <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
-
   var placeSearch,
     autocomplete;
   var componentForm = {
@@ -100,4 +100,5 @@
       });
     }
   }
+
 </script>
